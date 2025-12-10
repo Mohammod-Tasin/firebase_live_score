@@ -1,15 +1,15 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-class FCMService{
-  static Future<void> initialize()async{
+    class FCMService{
+    static Future<void> initialize()async{
     await FirebaseMessaging.instance.requestPermission(
-      alert: true,
-      announcement : false,
-      badge : true,
-      carPlay : false,
-      criticalAlert : false,
-      provisional : false,
-      sound : true,
+    alert: true,
+    announcement : false,
+    badge : true,
+    carPlay : false,
+    criticalAlert : false,
+    provisional : false,
+    sound : true,
     );
 
     ///foreground
@@ -17,7 +17,6 @@ class FCMService{
 
     ///background
     FirebaseMessaging.onMessageOpenedApp.listen(_handleNotification);
-
     ///terminated
     FirebaseMessaging.onBackgroundMessage(_handleTerminatedNotification);
   }
